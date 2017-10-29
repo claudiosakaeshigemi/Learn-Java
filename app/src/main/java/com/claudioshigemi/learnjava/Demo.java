@@ -14,7 +14,9 @@ public class Demo {
 
         Player jogador = new Player("Teste",4,2,2);
 
-        System.out.println("Player: "+ jogador.getHandlename()+ ", vidas: "+ jogador.getLives()+ ", level: "+jogador.getLevel() + ", \n pontuacao: "+jogador.getScore() );
+        System.out.println("Player: "+ jogador.getHandlename()+ ", vidas: "+ jogador.getLives()+
+                ", level: "+jogador.getLevel() + ", \n pontuacao: "+jogador.getScore() +
+                ", weapon: "+ jogador.getWeapon().getName());
 
     }
 }

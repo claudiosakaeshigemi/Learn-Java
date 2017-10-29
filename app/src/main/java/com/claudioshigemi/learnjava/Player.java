@@ -7,35 +7,42 @@ package com.claudioshigemi.learnjava;
 public class Player {
     private String handlename;
     private int lives;
-    private int level ;
+    private int level;
     private int score;
+    private Weapon weapon;
 
-    public Player(){
+    public Player() {
         this.handlename = "Unknown player";
         this.lives = 3;
         this.level = 1;
         this.score = 0;
     }
 
-    public  Player(String name,int lives, int level, int score){
+    public Player(String name, int lives, int level, int score) {
 
-        this.handlename = name;
-        this.lives = lives;
-        this.level = level;
-        this.score = score;
+        this.setHandlename(name);
+        this.setLives(lives);
+        this.setLevel(level);
+        this.setScore(score);
+        this.setDefaultWeapon();
 
     }
-
 
     public String getHandlename() {
         return handlename;
     }
 
     public void setHandlename(String handle) {
-        if (handle.length() < 3){
+        if (handle.length() < 3) {
+            System.out.println(" Nome tem que ter 3 caracterees ou mais.");
             return;
         }
         this.handlename = handlename;
+
+    }
+
+    private void setDefaultWeapon() {
+        this.weapon = new Weapon("sword", 10, 20);
     }
 
     public int getLives() {
@@ -60,5 +67,13 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 }
