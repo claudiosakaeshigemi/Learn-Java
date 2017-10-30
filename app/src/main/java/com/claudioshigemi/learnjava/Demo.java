@@ -5,18 +5,66 @@ package com.claudioshigemi.learnjava;
  */
 
 public class Demo {
+
     public static void main(String[] args) {
-        Player dim =  new Player();
-        System.out.println(dim.getHandlename());
+        Player dim = new Player("Tom Smith", 8);
+//        System.out.println(dim.getHandleName());
+//        System.out.println("Level: " + dim.getLevel());
+//        System.out.println("Lives: " + dim.getLives());
+//        System.out.println(dim.getWeapon().getName());
+//        Weapon timsWeapon = dim.getWeapon();
+//        System.out.println(timsWeapon.getName());
+//        System.out.println(dim.getWeapon().getName());
 
-        dim.setHandlename("dim");
-        System.out.println(dim.getHandlename() );
+        Weapon myAxe = new Weapon("Goldshine Axe", 15, 50);
+        dim.setWeapon(myAxe);
+//        System.out.println(dim.getWeapon().getName());
 
-        Player jogador = new Player("Teste",4,2,2);
+        Loot redPotion = new Loot("Red Potion", LootType.POTION, 7);
+        dim.pickUpLoot(redPotion);
 
-        System.out.println("Player: "+ jogador.getHandlename()+ ", vidas: "+ jogador.getLives()+
-                ", level: "+jogador.getLevel() + ", \n pontuacao: "+jogador.getScore() +
-                ", weapon: "+ jogador.getWeapon().getName());
+        dim.pickUpLoot(new Loot("+3 Chest Armor", LootType.ARMOR, 80));
+        dim.pickUpLoot(new Loot("Ring of Protection +2", LootType.RING, 40));
+        dim.pickUpLoot(new Loot("Invisibility Potion", LootType.POTION, 35));
 
+        dim.showInventory();
+
+//        Loot bluePotion = new Loot("Blue Potion", LootType.POTION, 6);
+        boolean wasDeleted = dim.dropLoot(redPotion);
+        System.out.println(wasDeleted);
+        dim.showInventory();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

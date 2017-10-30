@@ -14,7 +14,7 @@ public class HellorWorld {
         //String nome ;
         String nome = "Claudio";
         int valor = 1000;
-        int salario = valor *4;
+        int salario = valor * 4;
         System.out.println(nome);
         System.out.println(salario);
 
@@ -24,16 +24,22 @@ public class HellorWorld {
         System.out.println(result);
         System.out.println(" Tenho " + result + " de frutas.");
 
-        int semanas =130;
-        double ano = semanas/ 52.0;
+        int semanas = 130;
+        double ano = semanas / 52.0;
         System.out.println(ano);
-        System.out.println("  ano "+ ano + "tem.");
+        System.out.println("  ano " + ano + "tem.");
 
 
+        int lives = 3;
+        boolean isGameOver = (lives < 1);
+        System.out.println(isGameOver);
 
-
-
-
+        if (isGameOver) {
+            System.out.println("Game over!");
+        } else {
+            System.out.println("You're still alive!");
+        }
     }
-
 }
+
+

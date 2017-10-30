@@ -1,56 +1,66 @@
 package com.claudioshigemi.learnjava;
 
+import java.util.ArrayList;
+
 /**
  * Created by Claudio on 29/10/2017.
  */
 
 public class Player {
-    private String handlename;
+    private String handleName;
     private int lives;
     private int level;
     private int score;
     private Weapon weapon;
+    private ArrayList<Loot> inventory;
+
 
     public Player() {
-        this.handlename = "Unknown player";
-        this.lives = 3;
-        this.level = 1;
-        this.score = 0;
+        this("Unknown player");
     }
 
-    public Player(String name, int lives, int level, int score) {
-
-        this.setHandlename(name);
-        this.setLives(lives);
-        this.setLevel(level);
-        this.setScore(score);
-        this.setDefaultWeapon();
-
+    public Player(String handle) {
+        this(handle, 1);
+//        handleName = handle;
+//        lives = 3;
+//        level = 1;
+//        score = 0;
     }
 
-    public String getHandlename() {
-        return handlename;
+    public Player(String handle, int startingLevel) {
+//        this.handleName = handle;
+//        this.lives = 3;
+//        this.level = startingLevel;
+//        this.score = 0;
+        setHandleName(handle);
+        setLives(3);
+        setLevel(startingLevel);
+        setScore(0);
+        setDefaultWeapon();
+        inventory = new ArrayList<>();
     }
 
-    public void setHandlename(String handle) {
-        if (handle.length() < 3) {
-            System.out.println(" Nome tem que ter 3 caracterees ou mais.");
+    public String getHandleName() {
+        return handleName;
+    }
+
+    public void setHandleName(String handle) {
+        if(handle.length() <3) {
+            System.out.println("The name " + handle + " is too short, must be 3 characters or more.");
             return;
         }
-        this.handlename = handlename;
-
+        this.handleName = handle;
     }
 
     private void setDefaultWeapon() {
-        this.weapon = new Weapon("sword", 10, 20);
+        this.weapon = new Weapon("Sword", 10, 20);
     }
 
-    public int getLives() {
-        return lives;
-    }
-
-    public void setLives(int lives) {
-        this.lives = lives;
+    public void setNameAndLevel(String name, int level) {
+//        this.handleName = name;
+//        this.level = level;
+        setHandleName(name);
+        setLevel(level);
     }
 
     public int getLevel() {
@@ -59,6 +69,14 @@ public class Player {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 
     public int getScore() {
@@ -76,4 +94,85 @@ public class Player {
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
+
+    public ArrayList<Loot> getInventory() {
+        return inventory;
+    }
+
+//    public void setInventory(ArrayList<Loot> inventory) {
+//        this.inventory = inventory;
+//    }
+
+    public void pickUpLoot(Loot newLoot) {
+        inventory.add(newLoot);
+    }
+
+    public boolean dropLoot(Loot loot) {
+        if(this.inventory.contains(loot)) {
+            inventory.remove(loot);
+            return true;
+        }
+        return false;
+    }
+
+    public void showInventory() {
+        for(Loot item : inventory) {
+            System.out.println(item.getName());
+        }
+        System.out.println("======================================");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

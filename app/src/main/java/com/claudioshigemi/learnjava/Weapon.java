@@ -7,24 +7,12 @@ package com.claudioshigemi.learnjava;
 public class Weapon {
     private String name;
     private int damageInflicted;
-    private int hitpoints;
+    private int hitPoints;
 
-    public Weapon() {
-
-    }
-
-    public Weapon(String name, int damageInflicted, int hitpoints) {
-        this.setName(name);
-        this.damageInflicted = damageInflicted;
-        this.hitpoints = hitpoints;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Weapon(String name, int damageInflicted, int hitPoints) {
         this.name = name;
+        this.damageInflicted = damageInflicted;
+        this.hitPoints = hitPoints;
     }
 
     public int getDamageInflicted() {
@@ -35,12 +23,19 @@ public class Weapon {
         this.damageInflicted = damageInflicted;
     }
 
-    public int getHitpoints() {
-        return hitpoints;
+    public int getHitPoints() {
+        return hitPoints;
     }
 
-    public void setHitpoints(int hitpoints) {
-        this.hitpoints = hitpoints;
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
