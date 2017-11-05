@@ -14,7 +14,30 @@ public class Demo {
 //        enemy.showInfo();
 //        enemy.takeDamage(10);
 //        enemy.showInfo();
-        Troll uglyTroll =  new Troll("Ugly troll");
+
+        for (int i = 0; i<10; i ++ ){
+            VampyreKing vampKing = new VampyreKing("Vamp King");
+            vampKing.showInfo();
+            while (vampKing.getLives() > 0) {
+
+                if (vampKing.dodges()) {
+                    continue;
+                }
+                if (vampKing.runAway()) {
+                    System.out.println("VampKing ran away.");
+                    break;
+                } else {
+                    vampKing.takeDamage(12);
+                    vampKing.showInfo();
+                }
+            }
+            System.out.println("=================================");
+        }
+
+
+
+
+        Troll uglyTroll = new Troll("Ugly troll");
         uglyTroll.showInfo();
         uglyTroll.takeDamage(8);
         uglyTroll.showInfo();
@@ -31,11 +54,38 @@ public class Demo {
         vampKing.takeDamage(20);
         vampKing.showInfo();
 
+        while (vampKing.getLives() > 0) {
+            if (vampKing.dodges()) {
+                continue;
+            }
+            if (vampKing.runAway()) {
+                System.out.println("VampKing ran away.");
+                break;
+            } else {
+                vampKing.takeDamage(12);
+                vampKing.showInfo();
+            }
+        }
+
+        Player conan = new Player("Conan");
+        conan.pickUpLoot(new Loot("Invisibility", LootType.POTION, 4));
+        conan.pickUpLoot(new Loot("Mithril", LootType.ARMOR, 183));
+        conan.pickUpLoot(new Loot("Ring of Speed", LootType.RING, 25));
+        conan.pickUpLoot(new Loot("Red Potion", LootType.POTION, 2));
+        conan.pickUpLoot(new Loot("Cursed Shield", LootType.ARMOR, -8));
+        conan.pickUpLoot(new Loot("Brass Ring", LootType.RING, 1));
+        conan.pickUpLoot(new Loot("Chain Mail", LootType.ARMOR, 4));
+        conan.pickUpLoot(new Loot("Gold Ring", LootType.RING, 12));
+        conan.pickUpLoot(new Loot("Health Potion", LootType.POTION, 3));
+        conan.pickUpLoot(new Loot("Silver Ring", LootType.RING, 6));
+
+        conan.showInventory();
+
+
+        System.out.println(conan.score());
+
 
     }
-
-
-
 
 
 }
