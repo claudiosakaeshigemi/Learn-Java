@@ -15,10 +15,12 @@ public class Demo {
 //        enemy.takeDamage(10);
 //        enemy.showInfo();
 
-        for (int i = 0; i<10; i ++ ){
+        for (int i = 0; i < 10; i++) {
             VampyreKing vampKing = new VampyreKing("Vamp King");
             vampKing.showInfo();
-            while (vampKing.getLives() > 0) {
+            vampKing.setLives(0);
+            vampKing.setLives(vampKing.getLives() + 1);
+            do {
 
                 if (vampKing.dodges()) {
                     continue;
@@ -30,12 +32,9 @@ public class Demo {
                     vampKing.takeDamage(12);
                     vampKing.showInfo();
                 }
-            }
+            } while (vampKing.getLives() > 0);
             System.out.println("=================================");
         }
-
-
-
 
         Troll uglyTroll = new Troll("Ugly troll");
         uglyTroll.showInfo();
@@ -78,10 +77,11 @@ public class Demo {
         conan.pickUpLoot(new Loot("Gold Ring", LootType.RING, 12));
         conan.pickUpLoot(new Loot("Health Potion", LootType.POTION, 3));
         conan.pickUpLoot(new Loot("Silver Ring", LootType.RING, 6));
-
         conan.showInventory();
 
 
+        System.out.println(conan.score());
+        conan.dropLoot("Cursed Shield");
         System.out.println(conan.score());
 
 
